@@ -1,29 +1,29 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.feature "AfterCreateUpdatePath", type: :feature do
-  describe "after_create_path" do
-    it "redirects to index" do
-      visit "/admin/resources/comments/new"
+RSpec.feature 'AfterCreateUpdatePath', type: :feature do
+  describe 'after_create_path' do
+    it 'redirects to index' do
+      visit '/admin/resources/comments/new'
 
-      fill_in "comment_body", with: "Something"
+      fill_in 'comment_body', with: 'Something'
 
       save
 
-      expect(current_path).to eq "/admin/resources/comments"
+      expect(current_path).to eq '/admin/resources/comments'
     end
   end
 
-  describe "after_update_path" do
+  describe 'after_update_path' do
     let!(:comment) { create :comment }
 
-    it "redirects to index" do
+    it 'redirects to index' do
       visit "/admin/resources/comments/#{comment.id}/edit"
 
-      fill_in "comment_body", with: "Something else"
+      fill_in 'comment_body', with: 'Something else'
 
       save
 
-      expect(current_path).to eq "/admin/resources/comments"
+      expect(current_path).to eq '/admin/resources/comments'
     end
   end
 end
